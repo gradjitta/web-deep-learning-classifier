@@ -9,7 +9,7 @@ WORKDIR app
 
 ADD requirements.txt .
 RUN pip install -r requirements.txt
-#pip install --no-cache-dir -r
+RUN pip install --no-cache fastai==1.0.42
 ADD models models
 ADD src src
 

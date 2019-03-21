@@ -34,7 +34,7 @@ def load_image_bytes(raw_bytes: ByteString) -> Image:
     return img
 
 
-def predict(img, n: int = 3) -> Dict[str, Union[str, List]]:
+def predict(img, n: int = 9) -> Dict[str, Union[str, List]]:
     pred_class, pred_idx, outputs = model.predict(img)
     pred_probs = outputs / sum(outputs)
     pred_probs = pred_probs.tolist()
@@ -106,7 +106,7 @@ def before_request():
     app.jinja_env.cache = {}
 
 
-model = load_model('models')
+model = load_model(path = 'models')
 
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)
